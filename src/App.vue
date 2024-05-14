@@ -89,6 +89,17 @@ async function download() {
 </script>
 
 <style lang="postcss">
+@import "./assets/css/pico/css/pico.amber.min.css";
+.container {
+  @media screen and (max-width: 418px) {
+    padding-left: 0;
+  }
+  section.flex {
+    @media screen and (max-width: 418px) {
+      padding-left: 0.5rem;
+    }
+  }
+}
 h1 {
   text-transform: uppercase;
   letter-spacing: 0.2rem;
