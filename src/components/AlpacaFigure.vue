@@ -46,13 +46,13 @@ figure {
     &[id="backgrounds"] {
       z-index: 101;
     }
-    &[id="neck"] {
+    &[id="ears"] {
       z-index: 102;
     }
-    &[id="nose"] {
+    &[id="neck"] {
       z-index: 103;
     }
-    &[id="ears"] {
+    &[id="nose"] {
       z-index: 104;
     }
     &[id="hair"] {
