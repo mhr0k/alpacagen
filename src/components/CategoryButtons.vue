@@ -3,6 +3,7 @@
     v-for="category in categories"
     :key="category"
     :aria-pressed="active === category ? true : false"
+    :aria-label="`category: ${category}`"
     :class="active === category || 'outline'"
     @click="$emit('categoryChanged', category)"
   >

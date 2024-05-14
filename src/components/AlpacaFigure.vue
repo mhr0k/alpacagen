@@ -1,32 +1,40 @@
 <template>
   <figure id="alpaca">
-    <img
-      v-for="[category, value] in customizations"
-      :src="src(category, value)"
-      :key="category + value"
-      :alt="category + ': ' + value"
-      :id="category"
-    />
-    <img :src="src('nose')" id="nose" />
+    <TransitionGroup>
+      <div
+        v-for="[category, value] in customizations"
+        :style="{ backgroundImage: `url(${src(category, value)})` }"
+        :key="category + value"
+        :id="category"
+        :class="animate(category)"
+      ></div>
+    </TransitionGroup>
   </figure>
 </template>
 
 <script setup>
 import { computed } from "vue";
 const props = defineProps({ data: Object });
-const customizations = computed(() =>
-  props.data.map((entry) => {
+const customizations = computed(() => {
+  const map = props.data.map((entry) => {
     const category = entry.category;
     const option = entry.values.find((v) => v.on)?.id;
     return [category, option];
-  })
-);
+  });
+  map.push(["nose", ""]);
+  return map;
+});
 
 const src = (category, name) => {
   if (name) {
     return new URL(`../assets/alpaca/${category}/${name}.png`, import.meta.url);
   } else {
     return new URL(`../assets/alpaca/${category}.png`, import.meta.url);
+  }
+};
+const animate = (category) => {
+  if (category === "backgrounds") {
+    return "animate";
   }
 };
 </script>
@@ -42,7 +50,8 @@ figure {
     width: 100%;
     position: absolute;
   }
-  img {
+  div {
+    background-size: 100% 100%;
     &[id="backgrounds"] {
       z-index: 101;
     }
@@ -70,6 +79,14 @@ figure {
     &[id="leg"] {
       z-index: 109;
     }
+  }
+  .v-enter-active.animate,
+  .v-leave-active.animate {
+    transition: opacity 0.3s ease;
+  }
+  .v-enter-from.animate,
+  .v-leave-to.animate {
+    opacity: 0;
   }
 }
 </style>
