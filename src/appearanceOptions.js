@@ -25,7 +25,7 @@ export default [
   {
     category: "ears",
     values: [
-      { name: "Default", id: "default" },
+      { name: "Straight", id: "default" },
       { name: "Tilt Backward", id: "tilt-backward" },
       { name: "Tilt Forward", id: "tilt-forward" },
     ],
@@ -35,7 +35,7 @@ export default [
     values: [
       { name: "Bend Backward", id: "bend-backward" },
       { name: "Bend Forward", id: "bend-forward" },
-      { name: "Default", id: "default" },
+      { name: "Regular", id: "default" },
       { name: "Thick", id: "thick" },
     ],
   },
@@ -43,7 +43,7 @@ export default [
     category: "mouth",
     values: [
       { name: "Astonished", id: "astonished" },
-      { name: "Default", id: "default" },
+      { name: "Smile", id: "default" },
       { name: "Chewing", id: "eating" },
       { name: "Laugh", id: "laugh" },
       { name: "Tongue", id: "tongue" },
@@ -54,7 +54,7 @@ export default [
     values: [
       { name: "Bangs", id: "bang" },
       { name: "Curls", id: "curls" },
-      { name: "Default", id: "default" },
+      { name: "Refular", id: "default" },
       { name: "Elegant", id: "elegant" },
       { name: "Quiff", id: "quiff" },
       { name: "Short", id: "short" },
@@ -64,7 +64,7 @@ export default [
     category: "eyes",
     values: [
       { name: "Angry", id: "angry" },
-      { name: "Default", id: "default" },
+      { name: "Round", id: "default" },
       { name: "Naughty", id: "naughty" },
       { name: "Panda", id: "panda" },
       { name: "Smart", id: "smart" },
@@ -76,7 +76,7 @@ export default [
     values: [
       { name: "Bubble Tea", id: "bubble-tea" },
       { name: "Cookie", id: "cookie" },
-      { name: "Default", id: "default" },
+      { name: "Straight", id: "default" },
       { name: "Game Console", id: "game-console" },
       { name: "Tilt Backward", id: "tilt-backward" },
       { name: "Tilt Forward", id: "tilt-forward" },
