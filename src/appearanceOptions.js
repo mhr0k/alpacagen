@@ -1,0 +1,95 @@
+export default [
+  {
+    category: "backgrounds",
+    values: [
+      { name: "Malibu Sky", id: "blue50" },
+      { name: "Royal Blue", id: "blue60" },
+      { name: "Sapphire", id: "blue70" },
+      { name: "Faded Denim", id: "darkblue30" },
+      { name: "Marine", id: "darkblue50" },
+      { name: "Midnight", id: "darkblue70" },
+      { name: "Lettuce", id: "green50" },
+      { name: "Kiwi", id: "green60" },
+      { name: "Parakeet", id: "green70" },
+      { name: "Ivory", id: "grey40" },
+      { name: "Asphalt", id: "grey70" },
+      { name: "Carbon", id: "grey80" },
+      { name: "Carrot", id: "red50" },
+      { name: "Rust", id: "red60" },
+      { name: "Salsa", id: "red70" },
+      { name: "Daisy", id: "yellow50" },
+      { name: "Sunshine", id: "yellow60" },
+      { name: "Turmeric", id: "yellow70" },
+    ],
+  },
+  {
+    category: "ears",
+    values: [
+      { name: "Default", id: "default" },
+      { name: "Tilt Backward", id: "tilt-backward" },
+      { name: "Tilt Forward", id: "tilt-forward" },
+    ],
+  },
+  {
+    category: "neck",
+    values: [
+      { name: "Bend Backward", id: "bend-backward" },
+      { name: "Bend Forward", id: "bend-forward" },
+      { name: "Default", id: "default" },
+      { name: "Thick", id: "thick" },
+    ],
+  },
+  {
+    category: "mouth",
+    values: [
+      { name: "Astonished", id: "astonished" },
+      { name: "Default", id: "default" },
+      { name: "Chewing", id: "eating" },
+      { name: "Laugh", id: "laugh" },
+      { name: "Tongue", id: "tongue" },
+    ],
+  },
+  {
+    category: "hair",
+    values: [
+      { name: "Bangs", id: "bang" },
+      { name: "Curls", id: "curls" },
+      { name: "Default", id: "default" },
+      { name: "Elegant", id: "elegant" },
+      { name: "Quiff", id: "quiff" },
+      { name: "Short", id: "short" },
+    ],
+  },
+  {
+    category: "eyes",
+    values: [
+      { name: "Angry", id: "angry" },
+      { name: "Default", id: "default" },
+      { name: "Naughty", id: "naughty" },
+      { name: "Panda", id: "panda" },
+      { name: "Smart", id: "smart" },
+      { name: "Star", id: "star" },
+    ],
+  },
+  {
+    category: "leg",
+    values: [
+      { name: "Bubble Tea", id: "bubble-tea" },
+      { name: "Cookie", id: "cookie" },
+      { name: "Default", id: "default" },
+      { name: "Game Console", id: "game-console" },
+      { name: "Tilt Backward", id: "tilt-backward" },
+      { name: "Tilt Forward", id: "tilt-forward" },
+    ],
+  },
+  {
+    category: "accessories",
+    optional: true,
+    values: [
+      { name: "Earings", id: "earings" },
+      { name: "Flower", id: "flower" },
+      { name: "Glasses", id: "glasses" },
+      { name: "Headphones", id: "headphone" },
+    ],
+  },
+];
