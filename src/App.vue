@@ -29,18 +29,39 @@
 </template>
 
 <script setup>
-import CategoryButtons from "./components/CategoryButtons.vue";
-import PersonalizationButtons from "./components/PersonalizationButtons.vue";
-import AlpacaFigure from "./components/AlpacaFigure.vue";
-import AlpacaActionButtons from "./components/AlpacaActionButtons.vue";
-import appearanceOptions from "./appearanceOptions.js";
-import { ref, reactive, watchEffect } from "vue";
-import html2canvas from "html2canvas";
-import { saveAs } from "file-saver";
+import CategoryButtons from './components/CategoryButtons.vue';
+import PersonalizationButtons from './components/PersonalizationButtons.vue';
+import AlpacaFigure from './components/AlpacaFigure.vue';
+import AlpacaActionButtons from './components/AlpacaActionButtons.vue';
+import appearanceOptions from './appearanceOptions.js';
+import { ref, reactive, watchEffect, onMounted } from 'vue';
+import html2canvas from 'html2canvas';
+import { saveAs } from 'file-saver';
 const alpacaCustomizationData = reactive(appearanceOptions);
-const activeCategory = ref("hair");
+const activeCategory = ref('hair');
 const categories = alpacaCustomizationData.map((c) => c.category);
 const currentCustomizations = ref({});
+onMounted(() => {
+  function preloadImage(category, id) {
+    const img = new Image();
+    img.src = new URL(
+      `../assets/alpaca/${category}/${id}.png`,
+      import.meta.url
+    );
+  }
+  alpacaCustomizationData.forEach((categoryData) => {
+    categoryData.values.forEach((option) => {
+      preloadImage(categoryData.category, option.id);
+    });
+  });
+  alpacaCustomizationData.forEach((categoryData) => {
+    if (categoryData.category === 'backgrounds') {
+      categoryData.values.forEach((option) => {
+        preloadImage('backgrounds', option.id);
+      });
+    }
+  });
+});
 watchEffect(() => {
   currentCustomizations.value = alpacaCustomizationData.find(
     (c) => c.category === activeCategory.value
@@ -81,15 +102,15 @@ function randomize() {
 }
 randomize();
 async function download() {
-  const canvas = await html2canvas(document.querySelector("#alpaca"));
+  const canvas = await html2canvas(document.querySelector('#alpaca'));
   canvas.toBlob((blob) => {
-    saveAs(blob, "alpaca.png");
+    saveAs(blob, 'alpaca.png');
   });
 }
 </script>
 
 <style lang="postcss">
-@import "./assets/css/pico/css/pico.amber.min.css";
+@import './assets/css/pico/css/pico.amber.min.css';
 .container {
   @media screen and (max-width: 418px) {
     padding-left: 0;

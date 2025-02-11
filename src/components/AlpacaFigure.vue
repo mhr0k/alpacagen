@@ -1,19 +1,16 @@
 <template>
   <figure id="alpaca">
-    <TransitionGroup>
-      <div
-        v-for="[category, value] in customizations"
-        :style="{ backgroundImage: `url(${src(category, value)})` }"
-        :key="category + value"
-        :id="category"
-        :class="animate(category)"
-      ></div>
-    </TransitionGroup>
+    <div
+      v-for="[category, value] in customizations"
+      :style="{ backgroundImage: `url(${src(category, value)})` }"
+      :key="category + value"
+      :id="category"
+    ></div>
   </figure>
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed } from 'vue';
 const props = defineProps({ data: Object });
 const customizations = computed(() => {
   const map = props.data.map((entry) => {
@@ -21,7 +18,7 @@ const customizations = computed(() => {
     const option = entry.values.find((v) => v.on)?.id;
     return [category, option];
   });
-  map.push(["nose", ""]);
+  map.push(['nose', '']);
   return map;
 });
 
@@ -30,11 +27,6 @@ const src = (category, name) => {
     return new URL(`../assets/alpaca/${category}/${name}.png`, import.meta.url);
   } else {
     return new URL(`../assets/alpaca/${category}.png`, import.meta.url);
-  }
-};
-const animate = (category) => {
-  if (category === "backgrounds") {
-    return "animate";
   }
 };
 </script>
@@ -52,41 +44,33 @@ figure {
   }
   div {
     background-size: 100% 100%;
-    &[id="backgrounds"] {
+    &[id='backgrounds'] {
       z-index: 101;
     }
-    &[id="ears"] {
+    &[id='ears'] {
       z-index: 102;
     }
-    &[id="neck"] {
+    &[id='neck'] {
       z-index: 103;
     }
-    &[id="nose"] {
+    &[id='nose'] {
       z-index: 104;
     }
-    &[id="hair"] {
+    &[id='hair'] {
       z-index: 105;
     }
-    &[id="eyes"] {
+    &[id='eyes'] {
       z-index: 106;
     }
-    &[id="mouth"] {
+    &[id='mouth'] {
       z-index: 107;
     }
-    &[id="accessories"] {
+    &[id='accessories'] {
       z-index: 108;
     }
-    &[id="leg"] {
+    &[id='leg'] {
       z-index: 109;
     }
-  }
-  .v-enter-active.animate,
-  .v-leave-active.animate {
-    transition: opacity 0.3s ease;
-  }
-  .v-enter-from.animate,
-  .v-leave-to.animate {
-    opacity: 0;
   }
 }
 </style>
